@@ -1,0 +1,36 @@
+
+body {
+    background-color: #eef5f9;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 30px;
+}
+
+.resultado {
+    background-color: white;
+    width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #bbb;
+}
+
+h1 {
+    color: #244b70;
+}
+
+.bus {
+    color: green;
+}
+
+.metro {
+    color: blue;
+}
+
+.taxi {
+    color: orange;
+}
+
+.intermunicipal {
+    color: purple;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarifas de transporte</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<script>
+
+    let nombre = prompt("Ingrese su nombre:");
+
+    let transporte = Number(prompt(
+        "Seleccione el transporte:\n" +
+        "1. Bus Urbano\n" +
+        "2. Metro\n" +
+        "3. Taxi\n" +
+        "4. Intermunicipal"
+    ));
+
+    let condicion = Number(prompt(
+        "Seleccione su condición:\n" +
+        "1. Estudiante\n" +
+        "2. Adulto mayor\n" +
+        "3. Ninguna"
+    ));
+
+    let tipo = "";
+    let valor = 0;
+    let descuento = 0;
+    let descuentoTexto = "";
+    let clase = "";
+    let datosValidos = true;
+
+    // Seleccionar el transporte
+    switch (transporte) {
+        case 1:
+            tipo = "Bus Urbano";
+            valor = 2500;
+            clase = "bus";
+            break;
+
+        case 2:
+            tipo = "Metro";
+            valor = 2800;
+            clase = "metro";
+            break;
+
+        case 3:
+            tipo = "Taxi";
+            valor = 5000;
+            clase = "taxi";
+            break;
+
+        case 4:
+            tipo = "Intermunicipal";
+            valor = 10000;
+            clase = "intermunicipal";
+            break;
+
+        default:
+            datosValidos = false;
+    }
+
+    // Aplicar descuento
+    if (datosValidos) {
+
+        if (condicion == 1) {
+            descuento = 0.20;
+            descuentoTexto = "20% Estudiante";
+
+        } else if (condicion == 2) {
+            descuento = 0.30;
+            descuentoTexto = "30% Adulto mayor";
+
+        } else if (condicion == 3) {
+            descuento = 0;
+            descuentoTexto = "Sin descuento";
+
+        } else {
+            datosValidos = false;
+        }
+    }
+
+    // Calcular el precio final
+    let total = valor - (valor * descuento);
+
+    document.write("<div class='resultado'>");
+    document.write("<h1>Tarifas de transporte</h1>");
+
+    if (datosValidos) {
+        document.write("<p><b>Nombre:</b> " + nombre + "</p>");
+        document.write("<p class='" + clase + "'><b>Transporte:</b> " + tipo + "</p>");
+        document.write("<p><b>Descuento:</b> " + descuentoTexto + "</p>");
+        document.write("<h2>Valor total: $" + total.toLocaleString("es-CO") + "</h2>");
+    } else {
+        document.write("<p>Datos incorrectos. Intente nuevamente.</p>");
+    }
+
+    document.write("</div>");
+
+</script>
+
+</body>
+</html>
+
